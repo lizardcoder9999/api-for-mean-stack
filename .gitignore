@@ -1,3 +1,4 @@
 node_modules
 config.env
 /routes/route.test.js
+test.rest

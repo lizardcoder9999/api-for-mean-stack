@@ -1,4 +1,5 @@
 const express = require("express");
+const helmet = require("helmet");
 
 require("./config/db");
 
@@ -11,6 +12,9 @@ const app = express();
 
 //Json parser middleware
 app.use(express.json());
+
+//Helmet Js middleware
+app.use(helmet());
 
 //Using routes
 app.use("/api/user", authRoute);
