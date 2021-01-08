@@ -1,5 +1,6 @@
 const express = require("express");
 const helmet = require("helmet");
+const cors = require("cors");
 
 require("./config/db");
 
@@ -15,6 +16,9 @@ app.use(express.json());
 
 //Helmet Js middleware
 app.use(helmet());
+
+//Cors
+app.use(cors());
 
 //Using routes
 app.use("/api/user", authRoute);

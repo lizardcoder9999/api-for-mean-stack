@@ -19,5 +19,5 @@ exports.loginAdmin = async (req, res, next) => {
 
   const token = jwt.sign({ _id: adminExist._id }, process.env.JWT_SECRET);
 
-  res.header("admin-auth", token).json({ token: token });
+  res.header("admintoken", token).json({ token: token });
 };
