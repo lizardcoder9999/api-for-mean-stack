@@ -7,7 +7,7 @@ module.exports = function auth(req, res, next) {
 
   try {
     const verified = jwt.verify(token, process.env.JWT_SECRET); //Verified is the JWT payload
-    req.user = verified;
+    req.admin = verified;
     next();
   } catch (err) {
     res.status(400).json({ message: "Invalid Token" });

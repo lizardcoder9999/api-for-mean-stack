@@ -7,6 +7,7 @@ require("./config/db");
 //Importing routes
 const authRoute = require("./routes/auth");
 const adminAuthRoute = require("./routes/admin");
+const dashboardRoute = require("./routes/dashboard");
 // const testRoute = require("./routes/route.test");
 
 const app = express();
@@ -23,6 +24,7 @@ app.use(cors());
 //Using routes
 app.use("/api/user", authRoute);
 app.use("/api/admin", adminAuthRoute);
+app.use(dashboardRoute);
 // app.use("/api/test", testRoute);
 
 const PORT = process.env.PORT;
