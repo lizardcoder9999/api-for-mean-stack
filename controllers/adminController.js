@@ -21,3 +21,8 @@ exports.loginAdmin = async (req, res, next) => {
 
   res.header("admintoken", token).json({ token: token });
 };
+
+exports.getAdminById = async (req, res, next) => {
+  const admin = await Admin.findById(req.params.id);
+  return res.status(200).json({ admin: admin });
+};
