@@ -71,5 +71,5 @@ exports.getAllUsers = async (req, res, next) => {
 
 exports.deleteUser = async (req, res, next) => {
   await User.findByIdAndDelete(req.params.id);
-  res.status(200);
+  res.status(200).json({ message: "deleted" });
 };
