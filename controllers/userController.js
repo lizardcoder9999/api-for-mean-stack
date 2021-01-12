@@ -73,3 +73,13 @@ exports.deleteUser = async (req, res, next) => {
   await User.findByIdAndDelete(req.params.id);
   res.status(200).json({ message: "deleted" });
 };
+
+exports.userCount = async (req, res, next) => {
+  await User.find({}, (err, result) => {
+    if (err) {
+      res.status(400).json({ message: "error occured" });
+    } else {
+      res.status(200).json({ count: result.length });
+    }
+  });
+};
