@@ -8,6 +8,7 @@ const {
   RegisterUser,
   loginUser,
   getAllUsers,
+  deleteUser,
 } = require("../controllers/userController");
 
 router.route("/register").post(RegisterUser);
@@ -15,5 +16,7 @@ router.route("/register").post(RegisterUser);
 router.route("/login").post(loginUser);
 
 router.route("/all").get(getAllUsers);
+
+router.route("/delete/:id").delete(deleteUser);
 
 module.exports = router;

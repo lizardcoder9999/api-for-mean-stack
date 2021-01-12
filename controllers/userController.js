@@ -60,11 +60,16 @@ exports.loginUser = async (req, res, next) => {
 };
 
 exports.getAllUsers = async (req, res, next) => {
-  const users = User.find({}, (err, result) => {
+  const users = await User.find({}, (err, result) => {
     if (err) {
       res.status(400).json({ message: "error occured" });
     } else {
       res.status(200).json({ users: result });
     }
   });
+};
+
+exports.deleteUser = async (req, res, next) => {
+  await User.findByIdAndDelete(req.params.id);
+  res.status(200);
 };
