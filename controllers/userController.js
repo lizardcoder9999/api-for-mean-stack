@@ -58,3 +58,13 @@ exports.loginUser = async (req, res, next) => {
 
   res.header("auth-token", token).json({ token: token });
 };
+
+exports.getAllUsers = async (req, res, next) => {
+  const users = User.find({}, (err, result) => {
+    if (err) {
+      res.status(400).json({ message: "error occured" });
+    } else {
+      res.status(200).json({ users: result });
+    }
+  });
+};
