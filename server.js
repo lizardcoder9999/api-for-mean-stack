@@ -8,6 +8,7 @@ require("./config/db");
 const authRoute = require("./routes/auth");
 const adminAuthRoute = require("./routes/admin");
 const dashboardRoute = require("./routes/dashboard");
+const messageRoute = require("./routes/message");
 // const testRoute = require("./routes/route.test");
 
 const app = express();
@@ -25,6 +26,7 @@ app.use(cors());
 app.use("/api/user", authRoute);
 app.use("/api/admin", adminAuthRoute);
 app.use(dashboardRoute);
+app.use(messageRoute);
 // app.use("/api/test", testRoute);
 
 const PORT = process.env.PORT;
