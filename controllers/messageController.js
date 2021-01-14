@@ -37,3 +37,9 @@ exports.getMessageCount = async (req, res, next) => {
     }
   });
 };
+
+exports.getMessageById = async (req, res, next) => {
+  const message = await Message.findById(req.params.id);
+
+  return res.status(200).json({ message: message });
+};
