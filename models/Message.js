@@ -13,6 +13,11 @@ const messageSchema = new mongoose.Schema({
     max: 255,
   },
 
+  message: {
+    type: String,
+    required: true,
+  },
+
   response: {
     type: String,
     required: false,

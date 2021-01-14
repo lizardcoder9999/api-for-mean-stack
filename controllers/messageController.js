@@ -6,6 +6,7 @@ exports.sendMessageToAdmin = async (req, res, next) => {
   const message = new Message({
     from: req.body.from,
     email: req.body.email,
+    message: req.body.message,
     response: "",
     messageStatus: "unread",
   });
