@@ -83,3 +83,15 @@ exports.userCount = async (req, res, next) => {
     }
   });
 };
+
+exports.getUserByPartial = async (req, res, next) => {
+  const users = await User.find(
+    {
+      name: { $regex: ".*" + req.params.user + ".*" },
+    },
+    (err, result) => {
+      if (err) return res.status(400).json({ message: "An error occured" });
+      return res.status(200).json({ users: result });
+    }
+  ).limit(5);
+};

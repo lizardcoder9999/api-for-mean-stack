@@ -10,6 +10,7 @@ const {
   getAllUsers,
   deleteUser,
   userCount,
+  getUserByPartial,
 } = require("../controllers/userController");
 
 router.route("/register").post(RegisterUser);
@@ -21,5 +22,7 @@ router.route("/all").get(getAllUsers);
 router.route("/delete/:id").delete(deleteUser);
 
 router.route("/count").get(userCount);
+
+router.route("/partial/:user").get(getUserByPartial);
 
 module.exports = router;
